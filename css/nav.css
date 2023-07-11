@@ -1,0 +1,454 @@
+@font-face{
+    font-family: nav;
+    src:url("../source/fonts/NanumSquareB.ttf")
+}
+
+@keyframes timeCnt{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+body{
+    font-family: nav;
+    margin: 0;
+}
+
+.findPwResContain{
+    margin-top: 20px;
+}
+
+#findPwRes{
+    height: 25px;
+}
+
+#changePw{
+    display: none;
+}
+
+nav{
+    font-family: nav;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(220, 220, 220);
+
+    width: 100%;
+    height: 70px;
+
+    color: black;
+    background-color: white;
+}
+
+#register{
+    font-size: 24px;
+}
+
+#goMain{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(211, 20, 33);
+}
+
+#menu{
+    display: flex;
+    position: absolute;
+    top : 0px;
+    right: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 71px;
+    height: 71px;
+    font-size: 45px;
+    color: white;
+    background-color: rgb(211, 20, 33);
+}
+
+.navBtn{
+    font-family: nav;
+    flex-shrink: 0;
+    display: inline-flex;
+    position: relative;
+    font-weight: bolder;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 200px;
+    height: 100%;
+    font-size: 20px;
+    transition: all 0.2s;
+
+    cursor : pointer
+}
+
+.navBtn:hover{
+    color: red;
+}
+
+#fullSelectArea{
+    /* text-align속성은 조금씩 간격을 두고 정렬되므로 justifty를 활용하기 위해 flex속성 적용 */
+    display: flex;
+    justify-content: center;
+
+    z-index: 2;
+    overflow: hidden;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    height: 0px;
+    
+    background-color: white;
+
+    transition: all 0.5s;   
+}
+
+.fullSelectSeg{
+    display: inline-flex;
+    /* overflow hidden하면 자식 dom구조도 없어지게됨 */
+
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    width: 400px;
+    height: 100%; 
+
+    box-sizing: border-box;
+    border-left:  1px solid rgb(220, 220, 220);
+
+    text-align: center;
+    font-size: 20px;
+}
+
+.fullSelectSegEnd{
+    box-sizing: border-box;
+    border-right:  1px solid rgb(220, 220, 220);
+}
+
+#myBanner{
+    position: absolute;
+    top : 0px;
+    right: 0px;
+    z-index: 2;
+    overflow: hidden;
+    
+    width: 0%;
+    height:  100%;
+
+
+    padding-left: 20px;
+    opacity: 0;
+
+    color: black;
+    background-color: white;
+
+    transition: opacity, 0.3s;
+}
+
+.svgContain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    width: 400px;
+    height: 25px;
+}
+
+.btnLine{
+    /* transfrom scale(100)으로 안하면 부정확함 */
+    width: 4px;
+    margin: 0;
+    height: 1px;
+    background-color: red;
+    transition: transform 0.5s;
+}
+
+.svgTri{
+    display: none;
+    width: 20px;
+    height: 20px;
+    fill:red    
+}
+
+.fullBtn{
+    font-family: nav;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    transition: all 0.3s;
+
+}
+
+.fullBtn:hover{
+    color: red;
+    cursor : pointer
+}
+
+.fullBtnFirst{
+    padding-top: 20px;
+}
+
+/* -------------로그인 창-------------------- */
+
+#loginText{
+    display: block;
+    margin-top: 10px;
+    font-size: 25px;
+    margin-bottom : 10px;
+}
+
+#loginSeg{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+.loginInput{
+    display: block;
+    padding: 0;
+    box-sizing: border-box;
+    display: block;
+    width: 300px;
+    font-size: 30px;
+    height: 50px;
+}
+
+#loginBtn{
+    font-family: nav;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin-left: 2px;
+    font-size: 30px;
+    background-color: rgb(211, 20, 33);
+    border: none;
+    color: white;
+}
+
+#userSector{
+    display: none;
+    margin-top: 10px;
+    font-size: 0px;
+}
+
+.userSeg{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-left-width: 2px;
+    border-right-width: 1px;
+}
+
+#logout{
+    width: 300px;
+    text-align: right;
+    display: none;
+    margin-top: 5px;
+}
+
+.userSegLast{
+    border-right-width: 2px;
+}
+
+#registerAndFind{
+    position: relative;
+    margin-top: 5px;
+    width: 300px;
+    
+}
+
+#loginFindSeg{
+    right: 0px;
+    position: absolute;
+    right: 0;
+}
+
+/* ------------- 내정보 -------------------- */
+
+#myInfo{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    color: black;
+    background-color: white;
+}
+
+.infoBox{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.phoneInput{
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+}
+
+/* ------------- 회원가입 창 -------------------- */
+
+.regMargin{
+    margin-top: 10px;
+}
+
+#myInfo{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+
+    width: 0%;
+    height: 100%;
+
+    padding-left: 20px;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transition: all 0.3s;
+    
+    background-color: white;
+}
+
+
+#register{
+    position: absolute;
+    top:0;
+    right: 0;
+    z-index: 2;
+
+    width: 0%;
+    height: 100%;
+
+    padding-left: 20px;
+
+    opacity: 0;
+ 
+    overflow: hidden;
+
+    transition: all 0.3s;
+
+    color: black;
+    background-color: white;
+}
+
+#gender{
+    font-size: 18px;
+}
+
+.idInputSector{
+    display: flex;
+    align-items: flex-end;
+}
+
+.stdInput{
+    box-sizing: border-box;
+    height: 30px;
+    font-size: 24px;
+}
+
+.checkRes{
+    height: 20px;
+    font-size: 12px;
+    color: blue;
+}
+
+.idCheckBtn{
+    font-family: nav;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 10px;
+    width: 60px;
+    height: 30px;
+}
+
+.checkRegisterBtn{
+    font-family: nav;
+    margin-top: 5px;
+    font-size: 12px;
+    width: 60px;
+    height: 30px;
+}
+
+/* ------------- id찾기 -------------------- */
+#phoneNumberAndBtn{
+    font-family: nav;
+    display: flex;
+}
+
+#findId{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+
+    width: 0%;
+    height: 100%;
+
+    padding-left: 20px;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transition: all 0.3s;
+
+    color: black;
+    background-color: white;
+}
+
+
+/* ------------- 비밀번호 찾기 -------------------- */
+#findPwContain{
+    position: absolute;
+
+    
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+
+    width: 0%;
+    height: 100%;
+
+    padding-left: 20px;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transition: all 0.3s;
+    
+    color: black;
+    background-color: white;
+}
+
+.infoBtn{
+    margin-left: 10px;
+}

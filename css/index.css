@@ -1,0 +1,102 @@
+@font-face{
+    font-family: nav;
+    src:url("../source/fonts/NanumSquareB.ttf")
+}
+
+@keyframes timeCnt{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+body{
+    margin: 0;
+}
+
+h1{
+    font-size: 100px;
+    margin-top: 150px;
+    margin-left: 200px;
+}
+
+/* ------------- 배너 -------------------- */
+
+#banners{
+    overflow: hidden;
+    position: relative;
+    margin-top: 70px;
+    width: 100%;
+    height: 600px;
+    z-index: -1;
+    background-color: black;
+}
+
+.art{
+    font-size: 35px;
+    color: white;
+    transition: all, 1s;
+    width: 100%;
+}
+
+#bg{
+    position: absolute;
+    top: 0;
+    width:  100%;
+    height:  100%;
+    z-index: -2;
+    opacity: 0.5;
+    transition: opacity 1s;
+}
+
+.bannerBtn{
+    margin-left: 200px;
+    width: 200px;
+    height: 60px;
+
+    font-family: nav;
+    font-size: 30px;
+
+    background-color: rgb(0, 31, 114);
+    color : white;
+    
+    border-radius: 60px;
+    border: none;
+
+    cursor : pointer;
+}
+
+#timerBar{
+    position: absolute;
+    top : 670px;
+    height: 10px;
+    background-color: rgb(211, 20, 33);
+}
+
+#timerBar.effect{
+    animation-name : timeCnt;
+    animation-duration: 8s;
+    animation-fill-mode: forwards;
+}
+
+#emptyBar{
+    position: absolute;
+    z-index: -1;
+    top : 670px;
+    width: 100%;
+    height: 10px;
+    background-color: rgb(202, 202, 202);
+}
+
+#myIframe{
+    display: none;
+    position: absolute;
+    border:none;
+    z-index: -1;
+    top:70px;
+    width: 100%;
+    height: 100%;
+}
+

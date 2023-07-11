@@ -1,0 +1,110 @@
+header{
+    text-align: center;
+}
+
+.mainAndNav{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    /* 가운데 정렬 위한 flex속성 사용 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+button{
+    display: block;
+    width: 200px;
+    height: 50px;
+}
+
+#exp{
+    margin-top: 30px;
+    width: 250px;
+    height: 100px;
+    background-color: gray;
+}
+
+.imgProcess{
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input{
+    width: 60px;
+    height: 20px;
+}
+
+#a{
+    position: relative;
+}
+
+#uploadImage{
+    margin-top: 20px;
+    width: 250px;
+    height: 250px;
+
+}
+
+#RowLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    width: 250px;
+    height: 250px;
+}
+
+#ColumnLine{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    width: 250px;
+    height: 250px;
+}
+
+#Row{
+    border-top: 0px;
+    border-bottom: 0px;
+    margin: 0px;
+    color: black;
+    height: 250px;
+}
+
+.customInputBox{
+    margin-top: 10px;
+    position: relative;
+}
+
+.jule{
+    top: 3px;
+    left: 45px;
+    position: absolute;
+}
+
+.cho{
+    top: 3px;
+    left: 120px;
+    position: absolute;
+}
+
+#Column{
+    border-right: 0px;
+    border-left: 0px;
+    margin: 0px;
+    color: black;
+    width: 250px;
+}

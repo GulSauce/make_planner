@@ -1,0 +1,234 @@
+video::-webkit-media-controls{ display: none !important; }
+
+body{
+    margin: 0px;
+}
+
+main{
+    /* absoulte 자식과 동기화 위한 relative 속성  */
+    position: relative;
+    margin-top: 70px;
+    z-index: 0;
+    min-width: 700px;
+    width: 100%;
+    height: fit-content;
+}
+
+#bg{ 
+    width: 100%;
+}
+
+#throw{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top : 50%;
+    left:  50%;
+    border-radius: 70px;
+    font-size: 25px;
+    margin-top: -25px;
+    margin-left: -50px;
+}
+
+.chooseArea{
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+}
+
+.chooseBall{
+    width: 100px;
+    height: 70px;
+    font-size: 40px;
+    background-image: url(../../source/baseball/choosen_ball.jpg);
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.selectArea{
+    display: flex;
+    position: absolute;
+    top: 15%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.select{
+    display: flex;
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 70px;
+    color: RED;
+}
+
+header{
+    display: flex;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    height: fit-content;
+    background-color: gray;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left{
+    display: flex;
+    min-width: 0px;
+    flex-basis: 180px;
+}
+
+.leftCntText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    font-size: 20px;
+    color: white;
+    background-color: red;
+}
+
+#leftCnt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    font-size: 50px;
+    background-color: red;
+}
+
+.mid{
+    display: flex;
+    min-width: 0px;
+    flex-basis: 360px;
+}
+
+.resultBox{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 120px;
+    height: 90px;
+    font-size: 50px;
+    padding-right: 20px;
+    color: white;
+}
+
+#strike{
+    background-color: red;
+}
+
+#ball{
+    background-color: blue;
+}
+
+#out{
+    background-color: black;
+}
+
+#right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    font-size: 30px;
+    background-color: red;
+}
+
+.menuLogo{
+    width: 40px;
+    height: 40px;
+    fill:white;
+}
+
+#ending{
+    display: none;
+    top : 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -500px;
+    padding-top: 30px;
+    position: fixed;
+    width: 1000px;
+    height: 500px;
+    font-size: 60px;
+    background-color: rgba(210, 210, 210, 0.85);
+    text-align: center;
+}
+
+#title{
+    font-size: 40px;
+    color: red;
+}
+
+#goStart{
+    width: 300px;
+    height: 80px;
+    font-size: 30px;
+}
+
+#retry{
+    display: block;
+    width: 300px;
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+#baseball_menu{  
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    margin-top: -250px;
+    margin-left: -150px;
+    width: 300px;
+    height: fit-content;
+    text-align: center;
+    background-color: rgba(210, 210, 210, 0.85);
+}
+
+.menuTitle{
+    display: inline-block;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#X{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+
+#log{
+    position: absolute;
+    z-index: 0;
+    height: 70%;
+    width: 250px;
+    background-color: gray;
+    top: 160px;
+    right: 0;
+    text-align: center;
+}
+
+.information{
+    color: white;
+    font-size: 30px;
+}

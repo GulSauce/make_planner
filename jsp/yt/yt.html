@@ -1,0 +1,501 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../css/nav.css">
+    <link rel="stylesheet" type="text/css" href="../../css/yt/yt.css">
+    <title>YouTube</title>
+</head>
+<body>
+    <nav onmouseleave="HideWideNavEvent()">
+
+        <span id="goMain" onclick="GoEvent(-1)"></span>
+        <span id="introduceBtn" class="navBtn" onmouseover="ShowWideNavEvent(this)" onmouseout="HideSvgEvent(this, 0)">자기소개</span>
+        <span id="hwBtn" class="navBtn" onmouseover="ShowWideNavEvent(this)" onmouseout="HideSvgEvent(this, 0)">과제들 </span>
+        <span id="boardBtn" class="navBtn" onmouseover="ShowWideNavEvent(this)" onmouseout="HideSvgEvent(this, 0)">게시판</span>
+        
+        <div id="fullSelectArea">
+            <div class="fullSelectSeg"  onmouseover="ShowSvgEvent(this, 1)" onmouseout="HideSvgEvent(this, 1)">
+                <div class="svgContain">
+                    <p id="introduceBtnLine" class="btnLine"></p>
+                    <svg id="introduceBtnSvgTri" class="svgTri">
+                        <path d="M 10 10 L 20 0 L 0 0"></path>
+                    </svg>
+                </div>
+                <div class="fullBtn" onclick="GoEvent(0)">자기소개</div>
+            </div>
+            
+            <div class="fullSelectSeg" onmouseover="ShowSvgEvent(this, 1)" onmouseout="HideSvgEvent(this, 1)">
+                <div class="svgContain">
+                    <p id="hwBtnLine" class="btnLine"></p>
+                    <svg id="hwBtnSvgTri" class="svgTri">
+                        <path d="M 10 10 L 20 0 L 0 0"></path>
+                    </svg>
+                </div>
+                <div class="fullBtn" onclick="GoEvent(1)">컴퓨터 견적</div>
+                <div class="fullBtn" onclick="GoEvent(2)">유튜브</div>
+                <div class="fullBtn" onclick="GoEvent(3)">숫자야구</div>
+                <div class="fullBtn" onclick="GoEvent(4)">사진퍼즐</div>
+            </div>
+            <div class="fullSelectSeg fullSelectSegEnd" onmouseover="ShowSvgEvent(this, 1)" onmouseout="HideSvgEvent(this, 1)">
+                <div class="svgContain">
+                    <p id="boardBtnLine" class="btnLine"></p>
+                    <svg id="hwBtnSvgTri" class="svgTri">
+                        <path d="M 10 10 L 20 0 L 0 0"></path>
+                    </svg>
+                </div>
+                <div class="fullBtn" onclick="GoEvent(5)">자유게시판</div>
+            </div>
+        </div>
+       
+        <div id="menu" onclick="ShowMyBannerEvent()">=</div>
+        
+    </nav>
+
+    <div id = "myBanner">
+        <div id="menu" onclick="HideMyBannerEvent()">X</div>
+        <span id="loginText">로그인하셔야합니다.</span>
+        <div id="loginSeg">
+            <div>
+                <input type="text" class="loginInput">
+                <input type="password" class="loginInput">
+            </div>
+            <input type="button" id="loginBtn" value="로그인" onclick="loginEvent()"></span>
+        </div>
+        <div id="registerAndFind">
+            <span id="registerBtn" onclick="ShowRegisterEvent()">
+                회원가입
+            </span>
+            <span id="loginFindSeg">
+                <span onclick="ShowIdFindEvent()">ID찾기</span>
+                <span onclick="ShowPwFindEvent()">비밀번호 찾기</span>
+            </span>
+        </div>
+
+        <div id="userSector">
+            <div class="userSeg" onclick="ShowMyInfoEvent()">
+                내 정보
+            </div>
+            <div class="userSeg">
+                내가 쓴 글
+            </div>
+            <div class="userSeg userSegLast">
+                내가 쓴 댓글
+            </div>
+        </div>
+
+        <div id="logout" onclick="logoutEvent()">로그아웃</div>
+    </div>
+
+    <div id="idFind">
+        <span id="loginText">ID찾기</span>
+        <div id="menu" onclick="HideIdFindEvent()">X</div>
+        <div class = "infoBox">
+            <span><br>전화번호를 입력해주세요</span>
+            <div class="phoneNumberAndBtn">
+                <input id="phoneNumber" class="phoneInput" type="text">
+                <input class="idCheckBtn" type="button" value="입력" onclick="CheckNickEvent()">
+            </div>
+        </div>
+    </div>
+
+    <div id="pwFind">
+        <span id="loginText">비밀번호 찾기</span>
+        <div id="menu" onclick="HidePwFindEvent()">X</div>
+        <div class = "infoBox">
+            <span><br>아이디를 입력해주세요</span>
+            <input id="phoneNumber" class="idPwdInput" type="text">
+        </div>
+        <div class = "infoBox">
+            <span><br>전화번호를 입력해주세요</span>
+            <input id="phoneNumber" class="phoneInput" type="text">
+        </div>
+        <input class="idCheckBtn" type="button" value="입력" onclick="CheckNickEvent()">
+    </div>
+
+    <div id="myInfo">
+        <span id="loginText">내정보</span>
+        <div id="menu" onclick="HideMyInfoEvent()">X</div>
+        <div class = "infoBox">
+            <span>
+                닉네임 : 오영제
+            </span>
+            <span>
+
+            </span>
+        </div>
+        <div class = "infoBox">
+            <span>
+                ID : pine7420
+            </span>
+            <span>
+
+            </span>
+        </div>
+        <div class = "infoBox">
+            비밀번호 변경
+        </div>
+        <div class = "infoBox">
+            <span>전화번호</span>
+            <span>010-4543-7377</span>
+            <span>전화번호 변경</span>
+        </div>
+
+        <div class = "infoBox">
+            <span>생일 : </span>
+            <span>yyyy-dd-mm</span>
+            <span>생일 변경</span>
+        </div>
+ 
+        <div class = "infoBox">
+            <span>
+                성별
+            </span>
+            <span>
+                남자
+            </span>
+            <span>성별 변경</span>
+        </div>
+
+    </div>
+
+    <div id="register">
+        <div id="menu" onclick="HideRegisterEvent()">X</div>
+        <span id="loginText">회원가입</span>
+        <div class="regMargin">
+            닉네임<br>
+            <div class="idInputSector">
+                <input  id="nick" class="idPwdInput" type="text" oninput="ClearNickTextEvent()">
+                <input class="idCheckBtn" type="button" value="중복확인" onclick="CheckNickEvent()">
+            </div>
+            <div id="nickCheckRes" class="checkRes"></div>
+        </div>
+        <div class="regMargin">
+            아이디<br>
+            <div class="idInputSector">
+                <input  id="id" class="idPwdInput" type="text" oninput="ClearIdTextEvent()">
+                <input class="idCheckBtn" type="button" value="중복확인" onclick="CheckIdEvent()">
+            </div>
+        </div>
+        <div id="idCheckRes" class="checkRes">
+
+        </div>
+        <div class="regMargin">
+            비밀번호<br>
+            <input  id="pw" class="idPwdInput" type="password">
+        </div>
+        <div class="regMargin">
+            비밀번호 재입력<br>
+            <input  id="pwAgain" class="idPwdInput" type="password" oninput="CheckPwEvent()">
+        </div>
+        <div id="pwCheckRes" class="checkRes">
+
+        </div>
+        <div class="regMargin">
+            생년월일 입력<br>
+            <input id="birth" class="idPwdInput" type="date">
+        </div>
+        <div class="regMargin">
+            연락처 입력<br>
+            <input id="phoneNumber" class="idPwdInput" type="text">
+        </div>
+        <div class="regMargin">
+            성별 선택<br>
+            남자<input  name="gender" type="radio">
+            여자<input  name="gender" type="radio">
+            비공개<input  name="gender" type="radio">
+        </div>
+        <input class="checkRegisterBtn" type="button" value="회원가입" onclick="CheckRegisterEvent()">
+    </div>
+    <!-- header는 상단바이니까 header태그 적는다. -->
+    <header>
+        <div class = "left">
+            <!-- button render은 글자가 아니라 콘텐츠인데 div가 자연스럽다 -->
+            <div class = "buttonRender">
+                <svg>
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z">
+                    </path>
+                </svg>
+            </div>
+            <img class = "logo" src="../../source/yt/navi/logo.png">
+        <!-- KR은 콘텐츠가 글자이기 때문에 span이 자연스럽다 -->
+        <span class= "country">KR</span>
+        </div>
+
+        <div class="midWide">
+            <input class = "searchBar" type="text" placeholder="검색">
+            <div class = "searchButtonBox">
+                <svg class="svgIcon">
+                    <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z">
+                    </path>
+                </svg>
+            </div>
+            <span class="buttonRender mic">
+                <div class = "buttonRender">
+                    <svg class = "svgIcon">
+                        <path d="M12 3c-1.66 0-3 1.37-3 3.07v5.86c0 1.7 1.34 3.07 3 3.07s3-1.37 3-3.07V6.07C15 4.37 13.66 3 12 3zm6.5 9h-1c0 3.03-2.47 5.5-5.5 5.5S6.5 15.03 6.5 12h-1c0 3.24 2.39 5.93 5.5 6.41V21h2v-2.59c3.11-.48 5.5-3.17 5.5-6.41z">
+                        </path>
+                    </svg>
+                </div>  
+            </span>
+        </div>
+        <div class = "right">
+            <!-- buttonRender가 flex 속성이니까 자식 div줘도 가로로 정렬됨 -->
+            <div class ="buttonRender narrowSearch">
+                <svg class = "svgIcon">
+                    <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="buttonRender narrowMic">
+                <svg class = "svgIcon">
+                    <path d="M12 3c-1.66 0-3 1.37-3 3.07v5.86c0 1.7 1.34 3.07 3 3.07s3-1.37 3-3.07V6.07C15 4.37 13.66 3 12 3zm6.5 9h-1c0 3.03-2.47 5.5-5.5 5.5S6.5 15.03 6.5 12h-1c0 3.24 2.39 5.93 5.5 6.41V21h2v-2.59c3.11-.48 5.5-3.17 5.5-6.41z">
+                    </path>
+                </svg> 
+            </div>
+
+            <div class="buttonRender bell">
+                <svg class = "svgIcon">
+                    <path d="M10 20h4c0 1.1-.9 2-2 2s-2-.9-2-2zm10-2.65V19H4v-1.65l2-1.88v-5.15C6 7.4 7.56 5.1 10 4.34v-.38c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v5.15l2 1.87zm-1 .42-2-1.88v-5.47c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03C8.15 6.11 7 7.99 7 10.42v5.47l-2 1.88V18h14v-.23z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="buttonRender live">
+                <svg class = "svgIcon">
+                    <path d="M14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2zm3-7H3v12h14v-6.39l4 1.83V8.56l-4 1.83V6m1-1v3.83L22 7v8l-4-1.83V19H2V5h16z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="avatarRender">
+                <img class="avatar" src="../../source/yt/navi/avartar.jpg">
+            </div>
+        </div>
+    </header>
+
+    <!-- 주요한 지점으로 이동할수 있는 요소는 좌측 메뉴니까 nav태그 적는다. -->
+    <div>
+        <img class = "menu" src="../../source/yt/menu/miniMenu.png">
+    </div>
+
+    <!-- <div class="movieSort"> -->
+        <!-- moiveSort는 단순히 정렬 용, movies부터 본문이 시작되니까 main태그 적는다-->
+        <main>
+            <!-- 영상이라는 공통점이 있고 이 논리적 요소를 분리하기 위해 section을 사용한다. -->
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section><section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=QorEUDWlJlE">
+                    <img class ="thumbnail" src ="../../source/yt/moives/movie3.png">
+                </a>
+                <div class="movieInfo">
+                    <img class="channelLogo" src ="../../source/yt/moives/channelLogo2.png">
+                    <!-- 영상에서 제일 중요한 요소인 제목, 채널이름 조회수에 article태그 적는다. -->
+                    <article class="movieText">
+                        <h1 class="title">[자막뉴스] 미국 국가 부도 우려...JP모건, 전시상황실 설치 / YTN</h1>
+                        <span class="channelName">YTN</span>
+                        <span class="viewCnt">조회수 11만회</span>
+                        <span class="uploadDate">3일전</span>
+                    </article>
+                </div>
+            </section>
+        </main>
+    <!-- </div> -->
+    <script src="../../js/nav.js"></script>
+</body>
+</html>

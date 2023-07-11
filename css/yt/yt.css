@@ -1,0 +1,367 @@
+body{
+     /* fixed도 공간으로 보니까 그러나 이는 부적절함 차라리 마진 주는게 낫다.*/
+    /*display: flex;*/
+    margin: 0;
+    /* 반드시 css에 color을 적용하라, 유지보수에 좋다. */
+    color: white;
+    background-color: black;
+}
+
+
+@media(max-width: 400px){
+    div.bell{
+        display: none;
+    }
+    div.midWide{
+        display: none;
+    }
+    div.narrowSearch{
+        display: flex;
+    }
+    div.narrowMic{
+        display: none;
+    }
+}
+
+@media (min-width : 401px) and (max-width : 590px){
+    div.midWide{
+        display: none;
+    }
+    div.narrowSearch{
+        display: flex;
+    }
+    div.narrowMic{
+        display: flex;
+    }
+}
+
+@media (min-width : 1600px){
+    section.movie{
+        flex-grow:0;
+    }
+}
+
+/* ==================== Cpmmon ==================== */
+
+
+.svgIcon{
+    /* 
+    크기 변경위해 inline-block, block중 고른다.
+    콘텐츠이므로 block속성이 자연스럽다. */
+    display: block; 
+    height: 24px;
+    width: 24px;
+    fill : currentColor;
+}
+
+.buttonRender{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    /* 이 요소가 말단 자식으로 취급이 되냐에 따라 고정사이즈 OR padding 의 방식을 채택해야함 */
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonRender:hover{
+    background-color: rgba(170, 170, 170, 0.5);
+    border-radius: 70px;
+}
+
+/* ==================== Header ==================== */
+
+header {
+    /* 
+    flex 왜 쓰는가? : flex direction과 평행한 라인에 정렬 그 중에서도 
+    center에 정렬시키기 위해
+    */
+    position: fixed;
+    top: 70px;
+    display: flex;
+    /* 상위 태그에서는 퍼센트, fit-content로 놓는게 자연스러운 흐름 */
+    width: 100%;
+    height: fit-content;
+    /*
+    width 100% 준 상테에서 padding 주면 100% 보다 길이가 초과됨 
+    자식에서 padding을 주자
+    */
+    /* padding-left: 100px; */
+    padding-top : 10px;
+    padding-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: black;
+}
+
+/* left로 왜 묶는가? : 부모에게 space-between 적용받기 위해 */
+.left{
+    /*
+    flex 왜 쓰는가? : flex direction과 평행한 라인에 정렬시키기 위해
+    즉, 수평 거기에서도 center에 정렬시키기 위해
+    */
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+     /*  width : %로 놓는게 좋다. 여기서는 자식 content만 들어가면 되므로 fit-content로 놓음 */
+    width : fit-content;
+    /* height : fit-content로 놓는게 좋다. 왜? html요소는 수직으로 쌓아올리는 구조니까*/
+    height: fit-content;
+    padding-left: 16px;
+}
+
+.logo{
+    /* 
+    width만 놓으면 height는 알아서 비율에 맞게 정해지는 줄 알았으나
+    img태그는 그렇지 않고 꽉 채워버림
+    height 기준으로 놓으면 비율에 맞게 된다.
+    */
+
+    /* 최말단 자식이므로 px로 놓아도 자연스러움 */
+    margin-left: 10px;
+    height: 25px;
+}
+
+
+.country{
+    /* left에 묶여있지만 KR은 center에 있지 않으므로 flex로 속성을 정하고 기본 위치인 top에 놓는다. */
+    display: flex;
+    /* 최하위 컨텐츠는 px지정이 자연스럽다. */
+    height: 40px;
+
+    color: gray;
+    font-size: 12px;
+}
+
+.midWide {
+    /* 
+    자식들의 크기를 자신의 크기에 따라 알맞게 변형시키기 위해 flex속성 사용
+    flex-direction의 가운데에 정렬시키기 위한 목적도 있음 
+    */
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+
+.narrowSearch{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.narrowMic{
+    display: none;
+}
+
+.searchBar{
+    /* 최하위 자식이므로 px로 놓는게 자연스럽다. */
+    /* 
+    동적인 확대/축소 경향이 있으므로 flex-basis와 min, max 설정
+    flex-direction 기본값인 row에 맞추어서 
+    */
+    flex-basis: 600px;
+    /* 최대로 확대하면 없어지니까 min-width 놓는다. */
+    min-width: 0; 
+    /* 확대하면 늘어나다가 마니까 max-width 놓는다. */
+    max-width: 700px;
+    
+    /* 투명도를 0.25로 준 것은 1px보다 더 얇은 선 효과를 내기 위함 */
+    border : 1px solid rgba(255,255, 255, 0.25);
+    border-radius: 20px 0px 0px 20px;
+
+    /* 누르면 나오는 돋보기 모양을 위한 공간 */
+    padding-left: 15px;
+    /* 검색 placeholder가 밀려서 시작하므로 이를 위한 공간*/
+    padding-right: 26px;
+
+    /* 누르면 나오는 돋보기 모양을 위한 공간 미리 margin으로 할당해놔야 오른쪽으로 안밀림 */
+    margin-left: 30px;
+
+    color: white;
+    font-size: 16px;
+
+    background-color: black;
+    /* 가상키보드 모양 background */
+    background-image: url("yt_image/navi/virtualKeyboaed.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    /* 부모(searchBar)에 대한 상대적 위치 */
+    background-position: 98%, 50%;
+}
+
+.searchBar:focus{
+    border: 1px solid rgb(0, 89, 255);
+    background-image: url("yt_image/navi/serachButton.png"), url("yt_image/navi/virtualKeyboaed.png");
+    /* margin-left로 잡아놨던 30px공간을 돋보기 모양을 위해 padding으로 치환한다. */
+    margin-left: 0px;
+    /* 기존 padding 15px + 돋보기용 padding 30px */
+    padding-left: 45px;
+    background-size: 15px, 20px;
+    background-position: 3%, 98%, 50%, 50%;
+    /* focus 속성 기본값인 나타나는 윤곽선을 없애야한다. */
+    outline: none;
+}
+
+.searchButtonBox{
+    /* svg Icon 정가운데 정렬 위해 flex 속성 설정 */
+    display: flex;
+    /* 최하위 자식이므로 px로 설정하는 것이 자연스러움 */
+    width: 60px;
+    height: 40px;
+    /* 축소해도 줄지 않으므로 */
+    flex-shrink: 0;
+    /* 확대해도 늘지 않으므로 */
+    flex-grow: 0;
+
+    border: 1px solid gray;
+    /* 투명도를 0.25로 준 것은 1px보다 더 얇은 선 효과를 내기 위함 */
+    border-color: rgba(255,255, 255, 0.25);
+    background-color:rgb(34, 34, 34);
+    /* input태그의 border와 윤곽선이 겹치므로 없애기 위해 0px로 놓음*/
+    border-left: 0px;
+    border-radius: 0px 20px 20px 0px;
+    /* mic버튼과 일정 간격이 있으므로 */
+    margin-right: 15px;
+    /* svg Icon 정가운데에 놓기위한 정렬들 */
+    align-items : center;
+    justify-content: center;
+}
+
+.right{
+    /* 가운데에 있는 검색창 요소만 크기가 변하니까 shrink 0 */
+    flex-shrink: 0;
+    /* div 요소들 flex-direction과 평행하게 정렬위해 flex속성 줌 */
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    padding-right: 16px;
+}
+
+
+.avatarRender{
+    min-width: 60px;
+    width: 60px;
+    height: 34px;
+    text-align: center;
+    align-items: center;
+}
+
+.avatar{
+    height: 100%;
+    /* radius 70%주면 원 모양이 됨 */
+    border-radius: 70%;
+}
+
+/* ==================== Nav ==================== */
+
+.menu{
+    position: fixed;
+    /* 최하위 요소니까 px로 width주는게 자연스러움 */
+    top: 130px;
+    left: 0;
+    width: 70px;
+    background-color: black;
+}
+
+/* ==================== Main ==================== */
+
+main {
+    /* 
+    유튜브의 한 row당 최대 수는 6개임을 알 수 있다 
+    이를 구현하기위해 movies블럭을 만들고  flex 속성을 준다.
+    flex속성과 flex-basis, max-width를 주어 최대 늘어나는 길이를 제한한다.
+    근데 flex-basis은 div속성에 따른 width 전체 길이 점유대로 따라가면 되니까 기본값으로 두어 적지 않는다.
+     */
+    display: flex;
+    /* position relative */
+    /* top, left */
+    /* margin-left, margin-right : auto */
+    /* max-width: 2400px; */
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    margin-top: 130px;
+    margin-left: 70px;
+
+    /* 
+    wrap을 주어 영상 블럭들의 요소가 overflow하려할 때
+    동적 축소가 아닌 다음 행으로 개행시킨다.
+    */
+    flex-wrap: wrap;
+    
+    /* 기본적으로 영상들은 flex-direction과 평행하게 가운데 정렬 되어있다. */
+    justify-content: center;
+}
+
+section {
+    /* 
+    축소할때는 grow하지만, 확대할 때는 grow하지 않는다. 어떻게 해야할까? 
+    미디어 쿼리를 활용하자.
+    width 기본적인 설정인 %로 하려했지만 
+    그러면 영상이 크기가 늘지가 않음 부모인 movies가 줄면 알아서 줄기 때문이다.
+    px로 놓는다면 moive가 서로를 밀어내면서 개행되어
+    한 row마다 빈 공간이 생겨 그것에 맞추어 grow될 것이다.
+    */
+    flex-basis: 350px;
+    flex-grow: 1;
+    /*영상의 절대적 크기가 줄지는 않으므로 shrink: 0 설정*/
+    flex-shrink: 0;
+    margin: 10px;
+}
+
+.thumbnail{
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.movieInfo{
+    /* 
+    div들을 flex-direction과 수평 배치, top기본 정렬을 위해 flex속성 사용
+    또한 padding은 px로 주지만 채널로고는 %로 주므로 남은 공간을 계산해서 
+    movieText가 모두 차지하기위해 flex속성 사용
+    */
+    display: flex;
+    /* 
+    widht는 div의 기본특성인 한 row 모두 점유를 이용하기 위해 두고
+    height는 기본값인fit-content 이용하기 위해 냅둔다.
+    */
+}
+
+.channelLogo{
+    /* 
+    grow는 기본값 0이라 냅두고
+    shrink는 0으로 설정하여 축소도 안되고 확대도 안되게 함
+    px로 해놓으면 일정하게 커지지 않으니까 %로 놓는다.
+    */
+    /* flex-shrink: 0; */
+    width: 10%;
+    height: 10%;
+}
+
+.movieText{
+    padding-left :15px;
+    font-size: 16px;
+    text-align: left;
+    color: white;
+}
+
+.title{
+    /* 한 row을 다 차지하므로 block속성 설정한다. */
+    /* display: block; */
+    font-size: 16px;
+    margin: 0px;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.channelName{
+    /* 한 row을 다 차지하므로 block속성 설정한다. */
+    display: block;
+    color: gray;
+}
+
+.viewCnt, .vCnt, .uploadDate{
+    color : gray;
+}

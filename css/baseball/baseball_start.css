@@ -1,0 +1,62 @@
+html, body{
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.MainMenu{
+    /* column방향으로 정렬하기 위한 flex 속성 사용 */
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(../../source/baseball/start_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 1463px ;
+    background-position: center;
+}
+
+header{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+#level{
+    /* input(span)을 column방향으로 정렬하기 위한 flex속성 사용 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:  white;
+    font-size: 10px;
+}
+
+main{
+    margin-top: 10px;
+    color: white;
+}
+
+.btn{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: rgb(210, 210, 210);
+}
+
+input:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+#exp{
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(240, 240, 240, 0.5);
+}

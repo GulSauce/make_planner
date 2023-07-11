@@ -1,0 +1,70 @@
+@keyframes timeout{
+    from{
+        width: 1000px;
+    }
+    to{
+        width: 0px;
+    }
+}
+
+.sort{
+    width: fit-content;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dropPos{
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+}
+
+#takePos{
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+}
+
+#timer{
+    /* flex-direction과 수직방향 정렬위한 flex속성 부여 */
+    display: flex;
+    position: relative;
+    height: fit-content;;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.boardBlock{
+    display: inline-block;
+    box-shadow: 0 0 0 2px black inset;
+}
+
+#clock{
+    /* 글씨 정가운데 정렬 위한 flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    color: white;
+    font-size: 25px;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+#bar{
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    width: 1000px;
+    height: 30px;
+    background-color: red;
+    /* 바로 진행시키고 싶으면 animation, 반응형을 원한다면 trasition */
+    animation-name: timeout;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
