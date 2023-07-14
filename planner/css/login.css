@@ -1,0 +1,56 @@
+@font-face{
+    font-family: nav;
+    src:url("/source/fonts/NanumSquareB.ttf")
+}
+
+body{
+    font-family: nav;   
+}
+
+.contain{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    display: block;
+    width: 500px;
+}
+
+.stdIn{
+    font-family: nav;
+    box-sizing: border-box;
+    display: block;
+    width: 500px;
+    height: 80px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    outline: none;
+    border-color: rgb(231, 230, 230);
+}
+
+.stdIn:focus{
+    border-color: rgb(24, 119, 242);
+    outline: none;
+}
+
+.loginBtn{
+    color: white;
+    background-color: rgb(24, 119, 242);
+    border: none;
+}
+
+.autoLogin{
+    display: inline-block;
+    width: 500px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.find{
+    color: rgb(136, 136, 136);
+}
