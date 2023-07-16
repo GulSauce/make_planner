@@ -4,7 +4,7 @@
 }
 
 body{
-    font-family: nav;   
+    font-family: nav;
 }
 
 .contain{
@@ -21,6 +21,7 @@ body{
 }
 
 .stdIn{
+    flex-shrink: 0;
     font-family: nav;
     box-sizing: border-box;
     display: block;
@@ -35,7 +36,6 @@ body{
 
 .stdIn:focus{
     border-color: rgb(24, 119, 242);
-    outline: none;
 }
 
 .loginBtn{
@@ -45,12 +45,22 @@ body{
 }
 
 .autoLogin{
-    display: inline-block;
+    display: flex;
+    align-items: center;
     width: 500px;
+    height: 16px;
     text-align: left;
     margin-bottom: 10px;
 }
 
 .find{
     color: rgb(136, 136, 136);
+}
+
+.auto{
+    width: 16px;
+}
+
+.moveText:hover{
+    text-decoration: underline;
 }

@@ -16,12 +16,16 @@
         <input class="stdIn" type="password" placeholder="비밀번호">
         <input class="stdIn loginBtn" type="button" value="로그인">
         <script src="./js/index.js"></script>
-        <span class="autoLogin">자동로그인</span>
+        <span class="autoLogin"><img src="../source/image2.png" class="auto">&nbsp;자동로그인</span>
         <div class="find">
-            <span>회원가입 ㅣ</span>
-            <span>이메일 찾기 ㅣ</span>
-            <span>비밀번호 찾기</span>
+            <span class ="moveText" onmouserover="Draw" onclick="GoRegisterEvent()">회원가입</span>
+            <span>ㅣ</span>
+            <span class ="moveText">이메일 찾기</span>
+            <span>ㅣ</span>
+            <span class ="moveText">비밀번호 찾기</span>
         </div>
     </div>
+
+    <script src="../js/login.js"></script>
 </body>
 </html>
