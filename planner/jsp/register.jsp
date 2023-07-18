@@ -13,22 +13,23 @@
         <span class="title">가입하기</span>
         <hr class="hr">
         <div class="inAndBtn">
-            <input class="stdIn" type="text" placeholder="이름">
+            <input id="name" class="stdIn" type="text" maxlength="10" placeholder="이름" oninput="ValidNickNameEvent(this)">
         </div>
         <div class="inAndBtn">
-            <input class="stdIn" type="text" placeholder="이메일">
+            <input id="email" class="stdIn" type="text" maxlength="30" placeholder="이메일">
             <input class="stdBtn" type="button" value="중복체크">
         </div>
         <div class="inAndBtn">
-            <input class="stdIn" type="text" placeholder="전화번호">
+            <input id="phoneNumber" class="stdIn" type="text" placeholder="전화번호" maxlength="13" oninput="ValidPhoneNumberEvent(this)">
             <input class="stdBtn" type="button" value="중복체크">
         </div>
         <div class="inAndBtn">
-            <input class="stdIn" type="text" placeholder="비밀번호">
+            <input id="pw" class="stdIn" type="password" maxlength="30" placeholder="비밀번호" oninput="ValidPwEvent()">
         </div>
         <div class="inAndBtn">
-            <input class="stdIn" type="text" placeholder="비밀번호 확인">
+            <input id="pwAgain" class="stdIn" type="password" maxlength="30" placeholder="비밀번호 확인" oninput="ValidPwEvent()">
         </div>
+        <div id="pwCheckRes">비밀번호는 영문, 숫자, 특수문자를 반드시 포함시켜 7자 이상 30자 이하 가능합니다.</div>
         <div>
             <span class="selectTitle">생일</span>
             <div id="birthSelect"></div>   
@@ -47,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <input class="checkRegisterBtn" type="button" value="가입하기">
+        <input class="checkRegisterBtn" type="button" value="가입하기" onclick="GoRegEvent()">
     </div>
     <script src="../js/register.js"></script>
 </body>

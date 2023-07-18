@@ -111,3 +111,12 @@ body{
     
     font-size: 20px;
 }
+
+#pwCheckRes{
+    width: 500px;
+    text-align: left;
+    color: blue;
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
