@@ -21,19 +21,15 @@ body{
 }
 
 .stdIn{
-    display: block;
-    box-sizing: border-box;
-    font-family: nav;
-
     flex-shrink: 0;
-
+    font-family: nav;
+    box-sizing: border-box;
+    display: block;
     width: 500px;
     height: 60px;
     border-radius: 15px;
     margin-bottom: 10px;
-
     font-size: 30px;
-    
     outline: none;
     border-color: rgb(231, 230, 230);
 }
@@ -48,17 +44,13 @@ body{
     border: none;
 }
 
-.autoLoginContain{
+.autoLogin{
+    display: flex;
+    align-items: center;
     width: 500px;
     height: 16px;
     text-align: left;
     margin-bottom: 10px;
-}
-
-.autoLogin{
-    display: flex;
-    width: fit-content;
-    align-items: center;
 }
 
 .find{
@@ -71,4 +63,33 @@ body{
 
 .moveText:hover{
     text-decoration: underline;
+}
+
+.title{
+    text-align: left;
+    font-size: 30px;
+    width: 500px;
+}
+
+.hr{
+    display: block;
+    flex-shrink: 0;
+    width: 500px;
+    background-color: rgb(68, 114, 196);
+    height:1px;
+    border:0;
+
+    margin: 0;
+    margin-top : 16px;
+    margin-bottom : 16px;
+}
+
+
+#pwCheckRes{
+    width: 500px;
+    text-align: left;
+    color: blue;
+    font-size: 14px;
+    
+    margin-bottom: 10px;
 }

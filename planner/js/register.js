@@ -157,17 +157,15 @@ function ValidPwEvent(){
 function GoRegEvent(){
     var name = document.getElementById("name")
     var email = document.getElementById("email")
-    var pw = document.getElementById("pw")
-    var pwAgain = document.getElementById("pwAgain")
     var phoneNumber = document.getElementById("phoneNumber")
     let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     if(name.value == "" || name.value.length < 2)
         alert("이름을 확인해주세요")
-    else if(regex.test(email.value))
+    else if(!regex.test(email.value))
         alert("이메일을 확인해주세요")
     else if(phoneNumber.value == "" || phoneNumber.value.length < 13)
         alert("전화번호를 확인해주세요")
-    else if(pw.value.length < 7 || pw.value != pwAgain.value  || pwValid == false)
+    else if(pwValid == false)
         alert("비밀번호를 확인해주세요")
     else{
         var now = new Date()	

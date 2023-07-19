@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/register.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/planner/css/register.css">
+    <title>스테이지어스</title>
 </head>
 <body>
     <div class="contain">
@@ -50,6 +50,6 @@
         </div>
         <input class="checkRegisterBtn" type="button" value="가입하기" onclick="GoRegEvent()">
     </div>
-    <script src="../js/register.js"></script>
+    <script src="/planner/js/register.js"></script>
 </body>
 </html>
