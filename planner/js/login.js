@@ -35,5 +35,5 @@ function GoMainEvent(){
     else if(pw.value == "")
         alert("비밃번호를 입력해주세요")
     else
-        location.href="main.jsp"
+        location.href="/planner/jsp/main/main.jsp"
 }

@@ -10,7 +10,7 @@ function MakeBirth(){
 
     var temp = document.createElement("select")
     temp.id = "year"
-    temp.style.width = "140px"
+    temp.style.width = "100px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
     temp.style.fontFamily = "nav"
@@ -29,7 +29,7 @@ function MakeBirth(){
     
     var temp = document.createElement("select")
     temp.id = "month"
-    temp.style.width = "140px"
+    temp.style.width = "100px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
     temp.style.fontFamily = "nav"
@@ -42,12 +42,11 @@ function MakeBirth(){
         temp1.innerHTML = i
         temp.appendChild(temp1)
     }
-    temp.style.width = "140px"
     document.getElementById("birthSelect").appendChild(temp)
 
     var temp = document.createElement("select")
     temp.id = "day"
-    temp.style.width = "140px"
+    temp.style.width = "100px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
     temp.style.fontFamily = "nav"
@@ -60,7 +59,6 @@ function MakeBirth(){
         temp1.innerHTML = i
         temp.appendChild(temp1)
     }
-    temp.style.width = "140px"
     document.getElementById("birthSelect").appendChild(temp)
 }
 
