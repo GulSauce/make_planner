@@ -21,16 +21,18 @@ nav{
     width: 100%;
     height: 60px;
     background-color: white;
-    z-index: 1;
+    z-index: 2;
 }
 
 #sideMenu{
-    display: none;
     position: fixed;
+    z-index: 1;
     right: 0;
-    width: 30%;
+    width: 0%;
     height: 100%;
+    overflow: hidden;
     background-color: rgb(243, 246, 252);
+    transition: width, 0.5s;
 }
 
 
@@ -72,6 +74,10 @@ nav{
     flex-shrink: 0;
     margin-left: 20px;
     display: inline-block;
+}
+
+#miniDateSelect{
+    display: none;
 }
 
 #menu{
@@ -139,8 +145,140 @@ main{
 
 .mySchedule{
     height: 70px;
+    position: relative;
     box-sizing: border-box;
     background-color: white;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
+
+.myInfoContain{
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 100px;
+    background-color: white;
+}
+
+#myInfo{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    height: fit-content;
+}
+
+.nameInfo{
+    font-size: 26px;
+}
+
+.otherInfo{
+    color: gray;
+    margin-top: 10px;
+}
+
+.logoutBtn{
+    display: flex;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+.logutBtnImg{
+    height: 20px;
+    margin-right: 5px;
+}
+
+.admin{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10px;
+}
+
+.adminText{
+    font-size: 20px;
+}
+
+.officerList{
+    height: 40%;
+    overflow: scroll;
+    background-color: white;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+}
+
+.officer{
+    padding : 5px;
+    border-bottom: 1px solid black;
+}
+
+.officerName{
+    font-size: 26px;
+}
+
+.officerEmail{
+    font-size: 16px;
+}
+
+.editAndRemove{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 70px;
+    top: 0px;
+    right: 10px;
+    color: gray;
+}
+
+@media (max-width: 600px){
+    .userName{
+        font-size: 30px;
+    }
+    .addSchedule{
+        font-size: 16px;
+        width: 100px;
+        height: 35px;
+    }
+    .mySchedule{
+        height: 45px;
+        font-size: 12px;
+    }
+    .editAndRemove{
+        height: 45px;
+        font-size: 12px;
+    }
+    .today{
+        display: none;
+    }
+    .yearChange{
+        display: none;
+    }
+    #dateSelect{
+        display: none;
+        margin-left: 5%;
+        margin-top: 100px;
+    }
+    #miniDateSelect{
+        display: block;
+        margin-left: 5%;
+        margin-top: 80px;
+    }
+    .addAndName{
+        margin-left: 5%;
+        width: 90%;
+        margin-top: 10px;
+    }
+    #myScheduleContain{
+        margin-left: 5%;
+        margin-top: 10px;
+        width: 90%;
+    }
+    nav{
+        height: 40px;
+    }
+    .logo{
+        width: 100px;
+    }
+    hr{
+        top : 60px
+    }
+}
+

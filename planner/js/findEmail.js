@@ -1,9 +1,9 @@
 function GoLoginEvent(){
     var name = document.getElementById("name")
     var phoneNumber = document.getElementById("phoneNumber")
-    if(name.value == "")
+    if(name.value.length < 2)
         alert("이름을 입력해주세요")
-    else if(phoneNumber.value == "")
+    else if(phoneNumber.value.length < 13)
         alert("전화번호를 입력해주세요")
     else{
         alert("해당하는 이메일 : 입니다.")

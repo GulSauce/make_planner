@@ -71,3 +71,17 @@ body{
 .moveText:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 550px){
+    .logo{
+        width: 350px;
+    }
+    .stdIn{
+        width: 350px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .autoLoginContain{
+        width: 350px;
+    }
+}

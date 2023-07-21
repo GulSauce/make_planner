@@ -33,7 +33,7 @@ function GoMainEvent(){
     if(!regex.test(email.value))
         alert("이메일을 확인해주세요")
     else if(pw.value == "")
-        alert("비밃번호를 입력해주세요")
+        alert("비밀번호를 입력해주세요")
     else
         location.href="/planner/jsp/main/main.jsp"
 }
