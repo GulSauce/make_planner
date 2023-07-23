@@ -3,6 +3,14 @@
     src:url("/source/fonts/NanumSquareB.ttf")
 }
 
+input[type=password] {
+    font-family: initial;
+
+    &::placeholder {
+        font-family: nav;
+    }
+}
+
 html{
     height: 100%;
 }
@@ -10,6 +18,19 @@ html{
 body{
     font-family: nav;
     height: 90%;
+}
+
+.hr{
+    display: block;
+    flex-shrink: 0;
+    width: 500px;
+    background-color: rgba(68, 114, 196, 0.5);
+    height:1px;
+    border:0; 
+    
+    margin: 0;
+    margin-top : 16px;
+    margin-bottom : 16px;
 }
 
 .contain{
@@ -23,11 +44,6 @@ body{
 .title{
     text-align: left;
     font-size: 30px;
-    width: 500px;
-}
-
-.hr{
-    display: block;
     width: 500px;
 }
 
@@ -50,7 +66,7 @@ body{
     margin-bottom: 10px;
     font-size: 24px;
     outline: none;
-    border-color: rgb(231, 230, 230);
+    border : 2px solid rgb(231, 230, 230);
 }
 
 .stdBtn{
@@ -102,13 +118,15 @@ body{
 .radioSelect{
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     align-items: center;
-    width: 120px;
+    width: 140px;
     padding-left: 10px;
     padding-right: 10px;
     height: 40px;
     border: solid 1px;
-    
+    border: solid;
+    border-color: rgb(231, 230, 230);
     font-size: 20px;
 }
 

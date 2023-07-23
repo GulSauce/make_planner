@@ -1,15 +1,15 @@
 var autoClick = false
 
 function GoRegisterEvent(){
-    location.href = "register.jsp"
+    location.href = "/planner/jsp/login/register.jsp"
 }
 
 function GoFindEmailEvent(){
-    location.href = "findEmail.jsp"
+    location.href = "/planner/jsp/login/findEmail.jsp"
 }
 
 function GoFindPwEvent(){
-    location.href = "findPw.jsp"
+    location.href = "/planner/jsp/login/findPw.jsp"
 }
 
 function ChangeAutoEvent(){

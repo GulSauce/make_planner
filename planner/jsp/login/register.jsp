@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/planner/css/register.css">
+    <link rel="stylesheet" type="text/css" href="/planner/css/login/register.css">
     <title>스테이지어스</title>
 </head>
 <body>
@@ -17,11 +17,11 @@
         </div>
         <div class="inAndBtn">
             <input id="email" class="stdIn" type="text" maxlength="30" placeholder="이메일">
-            <input class="stdBtn" type="button" value="중복체크">
+            <input class="stdBtn" type="button" value="중복체크" onclick="CheckEmailEvent()">
         </div>
         <div class="inAndBtn">
             <input id="phoneNumber" class="stdIn" type="text" placeholder="전화번호" maxlength="13" oninput="ValidPhoneNumberEvent(this)">
-            <input class="stdBtn" type="button" value="중복체크">
+            <input class="stdBtn" type="button" value="중복체크" onclick="CheckPhoneEvent()">
         </div>
         <div class="inAndBtn">
             <input id="pw" class="stdIn" type="password" maxlength="30" placeholder="비밀번호" oninput="ValidPwEvent()">
@@ -50,6 +50,6 @@
         </div>
         <input class="checkRegisterBtn" type="button" value="가입하기" onclick="GoRegEvent()">
     </div>
-    <script src="/planner/js/register.js"></script>
+    <script src="/planner/js/login/register.js"></script>
 </body>
 </html>

@@ -3,6 +3,14 @@
     src:url("/source/fonts/NanumSquareB.ttf")
 }
 
+input[type=password] {
+    font-family: initial;
+
+    &::placeholder {
+        font-family: nav;
+    }
+}
+
 body{
     font-family: nav;
 }
@@ -31,10 +39,11 @@ body{
     border-radius: 15px;
     margin-bottom: 10px;
 
+    padding-left: 10px;
     font-size: 30px;
     
     outline: none;
-    border-color: rgb(231, 230, 230);
+    border : 2px solid rgb(231, 230, 230);
 }
 
 .stdIn:focus{

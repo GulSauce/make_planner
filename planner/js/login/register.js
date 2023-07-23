@@ -10,12 +10,13 @@ function MakeBirth(){
 
     var temp = document.createElement("select")
     temp.id = "year"
-    temp.style.width = "100px"
+    temp.style.width = "140px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
     temp.style.fontFamily = "nav"
+    temp.style.border = "solid rgb(231, 230, 230)"
 
-    for(var i = year; i >= 1905; i--){
+    for(var i = year; i >= 1905; i--){ 
         var temp1 = document.createElement("option")
         if(i == year)
             temp1.selected = true;
@@ -23,16 +24,17 @@ function MakeBirth(){
         temp1.innerHTML = i
         temp.appendChild(temp1)
     }
-   
+    
 
     document.getElementById("birthSelect").appendChild(temp)
     
     var temp = document.createElement("select")
     temp.id = "month"
-    temp.style.width = "100px"
+    temp.style.width = "140px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
     temp.style.fontFamily = "nav"
+    temp.style.border = "solid rgb(231, 230, 230)"
 
     for(var i = 1; i <= 12; i++){
         var temp1 = document.createElement("option")
@@ -46,10 +48,11 @@ function MakeBirth(){
 
     var temp = document.createElement("select")
     temp.id = "day"
-    temp.style.width = "100px"
+    temp.style.width = "140px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
     temp.style.fontFamily = "nav"
+    temp.style.border = "solid rgb(231, 230, 230)"
 
     for(var i = 1; i <= 31; i++){
         var temp1 = document.createElement("option")
@@ -60,6 +63,23 @@ function MakeBirth(){
         temp.appendChild(temp1)
     }
     document.getElementById("birthSelect").appendChild(temp)
+}
+
+function CheckEmailEvent(){
+    var email = document.getElementById("email")
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+    if(!regex.test(email.value))
+        alert("이메일을 확인해주세요")
+    else
+        alert("사용가능한 이메일입니다")
+}
+
+function CheckPhoneEvent(){
+    var phone = document.getElementById("phoneNumber")
+    if(phone.value.length < 13)
+        alert("전화번호를 확인해주세요")
+    else
+        alert("사용가능한 전화번호입니다")
 }
 
 function ValidPhoneNumberEvent(elem) {

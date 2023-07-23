@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/planner/css/findEmail.css">
+    <link rel="stylesheet" type="text/css" href="/planner/css/login/findEmail.css">
     <title>스테이지어스</title>
 </head>
 <body>
@@ -18,6 +18,6 @@
         <input id="phoneNumber" class="stdIn" type="text" maxlength="13" placeholder="전화번호" oninput="ValidPhoneNumberEvent(this)">
         <input class="stdIn loginBtn" type="button" value="입력완료" onclick="GoLoginEvent()">
     </div>
-    <script src="/planner/js/findEmail.js"></script>
+    <script src="/planner/js/login/finEmail.js"></script>
 </body>
 </html>

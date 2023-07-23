@@ -27,14 +27,12 @@ nav{
 #sideMenu{
     position: fixed;
     z-index: 1;
-    right: 0;
-    width: 0%;
+    right: -30%;
+    width: 30%;
     height: 100%;
     overflow: hidden;
     background-color: rgb(243, 246, 252);
-    transition: width, 0.5s;
 }
-
 
 .logo{
     position: absolute;
@@ -94,6 +92,7 @@ hr{
     box-sizing:border-box;
     top: 80px;
     margin: 0;
+    z-index: 2;
 }
 
 main{
@@ -164,6 +163,7 @@ main{
     padding-left: 10px;
     padding-bottom: 20px;
     height: fit-content;
+    overflow: hidden;
 }
 
 .nameInfo{
@@ -228,7 +228,11 @@ main{
     color: gray;
 }
 
-@media (max-width: 600px){
+@media (max-width: 700px){
+    #sideMenu{
+        width: 100%;
+        right: -100%; 
+    }
     .userName{
         font-size: 30px;
     }

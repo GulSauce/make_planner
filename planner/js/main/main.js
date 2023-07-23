@@ -51,25 +51,48 @@ function MakeDate(){
 
 function ShowMenuEvent(){
     var temp = document.getElementById("sideMenu")
+    var duration
+    if (matchMedia("screen and (max-width: 700px)").matches)
+        duration = 0;
+    else
+        duration = 250;
+
     if(sideMenuOpen == false){
         sideMenuOpen = true
-        if (matchMedia("screen and (max-width: 1024px)").matches){
-            document.getElementById("sideMenu").style.transitionDuration = "0s"
-            temp.style.width = "100%"   
-        }
-        else{
-            document.getElementById("sideMenu").style.transitionDuration = "0.5s"
-            temp.style.width = "30%"
-        }        
+        temp.animate(
+            {
+                transform: [
+                'translateX(0%)',  // 시작 값
+                'translateX(-100%)'  // 종료 값
+                ]
+            },
+            {
+                duration: duration,  // 밀리초 지정
+                fill: 'forwards',  // 종료 시 속성을 지님
+                easing: 'linear'  // 가속도 종류
+            }
+        );
     }
     else{
         sideMenuOpen = false
-        temp.style.width = "0px"
+        temp.animate(
+            {
+                transform: [
+                'translateX(-100%)',  // 시작 값
+                'translateX(0%)'  // 종료 값
+                ]
+            },
+            {
+                duration: duration,  // 밀리초 지정
+                fill: 'forwards',  // 종료 시 속성을 지님
+                easing: 'linear'  // 가속도 종류
+            }
+        );
     }
 }
 
 function GoLoginEvent(){
-    location.href = "/planner/jsp/login/login.jsp"
+    location.href = "/planner/index.jsp"
 }
 
 function OpenAddScheduleEvent(){

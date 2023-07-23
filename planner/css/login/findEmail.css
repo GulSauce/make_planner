@@ -7,8 +7,17 @@ body{
     font-family: nav;
 }
 
-hr{
-    color: rgb(68, 114, 196)
+.hr{
+    display: block;
+    flex-shrink: 0;
+    width: 500px;
+    background-color: rgba(68, 114, 196, 0.5);
+    height:1px;
+    border:0; 
+    
+    margin: 0;
+    margin-top : 16px;
+    margin-bottom : 16px;
 }
 
 .contain{
@@ -35,7 +44,8 @@ hr{
     margin-bottom: 10px;
     font-size: 30px;
     outline: none;
-    border-color: rgb(231, 230, 230);
+    border: solid;
+    border : 2px solid rgb(231, 230, 230);
 }
 
 .stdIn:focus{
@@ -75,19 +85,6 @@ hr{
     width: 500px;
 }
 
-.hr{
-    display: block;
-    flex-shrink: 0;
-    width: 500px;
-    background-color: rgb(68, 114, 196);
-    height:1px;
-    border:0;
-
-    margin: 0;
-    margin-top : 16px;
-    margin-bottom : 16px;
-}
-
 @media (max-width: 550px){
     .logo{
         width: 350px;
@@ -107,8 +104,9 @@ hr{
         width: 350px;
     }
     
-    .hr{
+    hr{
         display: block;
         width: 350px;
     }
 }
+
