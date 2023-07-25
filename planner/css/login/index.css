@@ -1,63 +1,5 @@
-@font-face{
-    font-family: nav;
-    src:url("/source/fonts/NanumSquareB.ttf")
-}
-
-input[type=password] {
-    font-family: initial;
-
-    &::placeholder {
-        font-family: nav;
-    }
-}
-
-body{
-    font-family: nav;
-}
-.contain{
-    display: flex;
-    flex-direction: column;
-    height: 90%;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo{
-    display: block;
-    width: 500px;
-}
-
-.stdIn{
-    display: block;
-    box-sizing: border-box;
-    font-family: nav;
-
-    flex-shrink: 0;
-
-    width: 500px;
-    height: 60px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-
-    padding-left: 10px;
-    font-size: 30px;
-    
-    outline: none;
-    border : 2px solid rgb(231, 230, 230);
-}
-
-.stdIn:focus{
-    border-color: rgb(24, 119, 242);
-}
-
-.loginBtn{
-    color: white;
-    background-color: rgb(24, 119, 242);
-    border: none;
-}
-
 .autoLoginContain{
-    width: 500px;
+    width: var(--std_width);
     height: 16px;
     text-align: left;
     margin-bottom: 10px;
@@ -70,7 +12,7 @@ body{
 }
 
 .find{
-    color: rgb(136, 136, 136);
+    color: var(--silver);
 }
 
 .auto{
@@ -83,14 +25,14 @@ body{
 
 @media (max-width: 550px){
     .logo{
-        width: 350px;
+        width: var(--std_mini_width);
     }
     .stdIn{
-        width: 350px;
+        width: var(--std_mini_width);
         height: 40px;
         font-size: 16px;
     }
     .autoLoginContain{
-        width: 350px;
+        width: var(--std_mini_width);
     }
 }

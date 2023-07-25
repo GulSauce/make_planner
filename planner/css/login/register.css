@@ -1,86 +1,24 @@
-@font-face{
-    font-family: nav;
-    src:url("/source/fonts/NanumSquareB.ttf")
-}
-
-input[type=password] {
-    font-family: initial;
-
-    &::placeholder {
-        font-family: nav;
-    }
-}
-
 html{
     height: 100%;
 }
 
 body{
-    font-family: nav;
     height: 90%;
 }
 
-.hr{
-    display: block;
-    flex-shrink: 0;
-    width: 500px;
-    background-color: rgba(68, 114, 196, 0.5);
-    height:1px;
-    border:0; 
-    
-    margin: 0;
-    margin-top : 16px;
-    margin-bottom : 16px;
-}
-
 .contain{
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.title{
-    text-align: left;
-    font-size: 30px;
-    width: 500px;
 }
 
 .inAndBtn{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 500px;
+    width: var(--std_width);
 }
 
 .stdIn{
-    display: inline-block;
-    flex-shrink: 0;
-    font-family: nav;
-    box-sizing: border-box;
-    display: block;
     width: 350px;
-    height: 45px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    font-size: 24px;
-    outline: none;
-    border : 2px solid rgb(231, 230, 230);
-}
-
-.stdBtn{
-    font-family: nav;
-    flex-shrink: 0;
-    width: 130px;
-    height: 45px;
-    font-size: 24px;
-    border-radius: 10px;
-    border: none;
-}
-
-.stdIn:focus{
-    border-color: rgb(24, 119, 242);
 }
 
 .checkRegisterBtn{
@@ -89,7 +27,7 @@ body{
     height: 40px;
     border-radius: 15px;
     font-size: 20px;
-    color: white;
+    color: var(--white);
     background-color: rgb(0, 164, 0);
     border: none;
 }
@@ -101,7 +39,7 @@ body{
 #birthSelect{
     display: flex;
     justify-content: space-between;
-    width: 500px;
+    width: var(--std_width);
     margin-top: 5px;
     margin-bottom: 10px;
 }
@@ -110,7 +48,7 @@ body{
     display: flex;
     flex-shrink: 0;
     justify-content: space-between;
-    width: 500px;
+    width: var(--std_width);
     margin-top: 5px;
     margin-bottom: 20px;
 }
@@ -126,12 +64,12 @@ body{
     height: 40px;
     border: solid 1px;
     border: solid;
-    border-color: rgb(231, 230, 230);
+    border-color: var(--white_border_color);
     font-size: 20px;
 }
 
 #pwCheckRes{
-    width: 500px;
+    width: var(--std_width);
     text-align: left;
     color: blue;
     font-size: 14px;

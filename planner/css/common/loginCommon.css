@@ -1,0 +1,82 @@
+input[type=password] {
+    font-family: initial;
+
+    &::placeholder {
+        font-family: nav;
+    }
+}
+
+.logo{
+    display: block;
+    width: var(--std_width);
+}
+
+.hr{
+    display: block;
+    flex-shrink: 0;
+    width: var(--std_width);
+    background-color: var(--blue_border_color);
+    height:1px;
+    border:0; 
+    
+    margin: 0;
+    margin-top : 16px;
+    margin-bottom : 16px;
+}
+
+.contain{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.contain{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.stdIn{
+    flex-shrink: 0;
+    font-family: nav;
+    box-sizing: border-box;
+    display: block;
+    width: var(--std_width);
+    height: 60px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    outline: none;
+    border: solid;
+    border : 2px solid var(--white_border_color);
+}
+
+.stdIn:focus{
+    border-color: var(--blue_border_color);
+}
+
+.title{
+    text-align: left;
+    font-size: 30px;
+    width: var(--std_width);
+}
+
+.stdBtn{
+    font-family: nav;
+    flex-shrink: 0;
+    width: 130px;
+    height: 45px;
+    font-size: 24px;
+    border-radius: 10px;
+    border: none;
+}
+
+.loginBtn{
+    color: var(--white);
+    background-color: var(--blue_bg_color);
+    border: none;
+}

@@ -1,0 +1,24 @@
+@font-face{
+    font-family: nav;
+    src:url("/source/fonts/NanumSquareB.ttf")
+}
+
+:root{
+    --blue_border_color: rgba(68, 114, 196, 0.5);
+    --white_border_color: rgb(231, 230, 230);
+    --blue_bg_color: rgb(24, 119, 242);
+
+    --menu_color: rgb(243, 246, 252);
+    --menu_svg_color: rgb(24, 119, 242);
+
+    --silver : rgb(136, 136, 136);
+    --black : black;
+    --white : white;
+    --blue : blue;
+    --std_width : 500px;
+    --std_mini_width : 350px;
+}
+
+body{
+    font-family: nav;
+}

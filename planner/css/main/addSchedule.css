@@ -1,16 +1,6 @@
-@font-face{
-    font-family: nav;
-    src:url("/source/fonts/NanumSquareB.ttf")
-}
-
 @media (max-width: 400px){
     
 }
-
-body{
-    font-family: nav;
-}
-
 
 .dateContain{
     display: block;
@@ -45,8 +35,8 @@ body{
 .okBtn{
     font-family: nav;
     border: none;
-    background-color: rgb(24, 119, 242);
-    color: white;
+    background-color: var(--blue_bg_color);
+    color: var(--white);
 
     border-radius: 6px;
     
@@ -58,8 +48,8 @@ body{
 .cancelBtn{
     font-family: nav;
     border: none;
-    background-color: rgb(191, 191, 191);
-    color : white;
+    background-color: var(--silver);
+    color : var(--white);
     
     border-radius: 6px;
 

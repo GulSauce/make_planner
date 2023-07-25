@@ -1,92 +1,7 @@
-@font-face{
-    font-family: nav;
-    src:url("/source/fonts/NanumSquareB.ttf")
-}
-
-body{
-    font-family: nav;
-}
-
-.hr{
-    display: block;
-    flex-shrink: 0;
-    width: 500px;
-    background-color: rgba(68, 114, 196, 0.5);
-    height:1px;
-    border:0; 
-    
-    margin: 0;
-    margin-top : 16px;
-    margin-bottom : 16px;
-}
-
-.contain{
-    display: flex;
-    flex-direction: column;
-    height: 90%;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo{
-    display: block;
-    width: 500px;
-}
-
-.stdIn{
-    flex-shrink: 0;
-    font-family: nav;
-    box-sizing: border-box;
-    display: block;
-    width: 500px;
-    height: 60px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    font-size: 30px;
-    border : 2px solid rgb(231, 230, 230);
-}
-
-.stdIn:focus{
-    border-color: rgb(24, 119, 242);
-}
-
-.loginBtn{
-    color: white;
-    background-color: rgb(24, 119, 242);
-    border: none;
-}
-
-.autoLogin{
-    display: flex;
-    align-items: center;
-    width: 500px;
-    height: 16px;
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-.find{
-    color: rgb(136, 136, 136);
-}
-
-.auto{
-    width: 16px;
-}
-
-.moveText:hover{
-    text-decoration: underline;
-}
-
-.title{
-    text-align: left;
-    font-size: 30px;
-    width: 500px;
-}
-
 #pwCheckRes{
     width: 500px;
     text-align: left;
-    color: blue;
+    color: var(--blue);
     font-size: 14px;
     
     margin-bottom: 10px;
@@ -94,30 +9,30 @@ body{
 
 @media (max-width: 550px){
     .logo{
-        width: 350px;
+        width: var(--std_mini_width);
     }
     .stdIn{
-        width: 350px;
+        width: var(--std_mini_width);
         height: 40px;
         font-size: 16px;
     }
     .autoLoginContain{
-        width: 350px;
+        width: var(--std_mini_width);
     }
 
     .title{
         text-align: left;   
         font-size: 30px;
-        width: 350px;
+        width: var(--std_mini_width);
     }
     
     hr{
         display: block;
-        width: 350px;
+        width: var(--std_mini_width);
     }
 
     #pwCheckRes{
-        width: 350px;
+        width: var(--std_mini_width);
         font-size: 14px;
     }
 }
