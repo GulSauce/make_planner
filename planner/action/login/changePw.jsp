@@ -17,7 +17,6 @@
 <!-- 리스트 라이브러리 -->
 <%@ page import="java.util.ArrayList" %>
 
-<% request.setCharacterEncoding("UTF-8"); %>
 <!-- jsp의 영역 -->
 <%
     //Connecter 파일 불러와서 MariaDB 연결
@@ -26,28 +25,22 @@
     //데이터베이스 연결, //localhost : 내 서버 안에 설치되어있으니까
     Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/planner", "stageus", "1234");
 
-    String name = request.getParameter("name");
+    String pw = request.getParameter("pw");
     String email = request.getParameter("email");
-    String phoneNumber = request.getParameter("phoneNumber");
 
     //SQL 만들기
-    String str = "SELECT email FROM UserInfo WHERE name = ? AND email = ? AND phoneNumber = ?";
+    String str = "UPDATE UserInfo SET pw = ? WHERE email = ?";
     PreparedStatement sql = connect.prepareStatement(str);
-    sql.setString(1, name);
+    sql.setString(1, pw);
     sql.setString(2, email);
-    sql.setString(3, phoneNumber);
 
-    ResultSet rs = null;
     //SQL 전송
-    rs = sql.executeQuery();
-
-    boolean isSucc = false;
-    if(rs.next())
-        isSucc = true;
-    
-    if(isSucc == true){
-        request.setAttribute("email", "\""+rs.getString(1)+"\"");
-    }
+    sql.execute();
 %>
 
-<jsp:forward page="/planner/jsp/login/changePw.jsp"/>
+<script>
+    alert("비밀번호 변경이 완료되었습니다.")
+    self.close()
+    opener.window.location.reload();
+    opener.location.href = "/planner/index.jsp"
+</script>

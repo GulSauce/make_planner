@@ -7,6 +7,10 @@
     margin-bottom: 10px;
 }
 
+#email{
+    display: none;
+}
+
 @media (max-width: 550px){
     .logo{
         width: var(--std_mini_width);

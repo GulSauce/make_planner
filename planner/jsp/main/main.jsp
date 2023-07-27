@@ -1,6 +1,99 @@
-<%@ page language="java" contentType="text/html" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 
-<% request.setCharacterEncoding("UTF-8"); %>
+<%@ page import="java.util.Date" %>
+
+<!-- 데이터베이스 탐색및 설정해주는 라이브러리 -->
+<%@ page import="java.sql.DriverManager" %>
+
+<!-- 데이터베이스 연결 라이브러리 -->
+<%@ page import="java.sql.Connection" %>
+
+<!-- 데이터베이스로 sql전송해주는 라이브러리 -->
+<%@ page import="java.sql.PreparedStatement" %>
+
+<!-- 데이터베이스에서받아온 값을 저장하는 라이브러리 -->
+<%@ page import="java.sql.ResultSet" %>
+
+<!-- 리스트 라이브러리 -->
+<%@ page import="java.util.ArrayList" %>
+
+<!-- jsp의 영역 -->
+<%
+    ArrayList<String>culums = (ArrayList)session.getAttribute("MEMBERID");
+    boolean login = culums == null ? false : true;
+    
+    ArrayList<ArrayList<String>>employees = new ArrayList<ArrayList<String>>();
+
+    boolean flag = false;
+    if(culums != null && culums.get(5).equals("\""+"팀장"+"\"")){
+        flag = true;
+        //Connecter 파일 불러와서 MariaDB 연결
+        Class.forName("com.mysql.jdbc.Driver");
+
+        //데이터베이스 연결, //localhost : 내 서버 안에 설치되어있으니까
+        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/planner", "stageus", "1234");
+
+        //SQL 만들기
+        String str = "SELECT name, email FROM UserInfo WHERE class = ?";
+        PreparedStatement sql = connect.prepareStatement(str);
+        sql.setString(1, "사원");
+
+        ResultSet rs = null;
+        //SQL 전송
+        rs = sql.executeQuery();
+
+        if(rs.next()){
+            do{
+                ArrayList<String>employee = new ArrayList<String>();
+                employee.add("\""+rs.getString(1)+"\"");
+                employee.add("\""+rs.getString(2)+"\"");
+                 employees.add(employee);
+            }while(rs.next());
+        }
+    } 
+%>
+
+<script>
+    init()
+
+    function init(){
+        if(<%=login%> == false){
+            alert("로그인이 필요합니다")
+            location.href = "/planner/index.jsp"
+        }
+        else{
+            window.onload = function () {
+                var culums = <%=culums%>
+                document.getElementById("classAndName").innerHTML = culums[5] + " " + culums[0];
+                document.getElementById("email").innerHTML = culums[1]
+                document.getElementById("phoneNumber").innerHTML = culums[2]
+                document.getElementById("birth").innerHTML = culums[4].substr(2,2)+". "+culums[4].substr(5,2)+". "+culums[4].substr(8,2)
+                if(culums[5] != "팀장")
+                    document.getElementById("admin").style.display = "none";
+            }
+        }
+    }
+
+    window.addEventListener('load', function(){
+        for(var employee of <%=employees%>){
+            var contain = document.createElement("div")
+            contain.className = "officer"
+
+            var name = document.createElement("div")
+            name.className = "officerName"
+            name.innerHTML = employee[0]
+
+            var email = document.createElement("div")
+            email.className = "officerEmail"
+            email.innerHTML = employee[1]
+
+            contain.appendChild(name)
+            contain.appendChild(email)
+            document.getElementById("officerList").appendChild(contain)
+        }
+    })
+    
+</script>
 
 <head>
     <meta charset="UTF-8">
@@ -10,58 +103,23 @@
     <link rel="stylesheet" type="text/css" href="/planner/css/main/main.css">
     <title>스테이지어스</title>
 </head>
+
 <body>
     <div id="sideMenu">
         <div class="myInfoContain">
             <div id="myInfo">
-                <div class="nameInfo">팀장 오영제</div>
-                <div class="otherInfo">pine7420@naver.com</div>
-                <div class="otherInfo">010-4543-7377</div>
-                <div class="otherInfo">99.07.28</div>
+                <div id ="classAndName" class="nameInfo">직급 이름</div>
+                <div id="email" class="otherInfo">이메일</div>
+                <div id="phoneNumber" class="otherInfo">전화번호</div>
+                <div id="birth" class="otherInfo">생일</div>
             </div>
         </div>
-        <div class="admin">
+        <div id="admin">
             <span class="adminText">사원조회</span>
-            <div class="officerList">
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
-                <div class="officer">
-                    <div class="officerName">김스테이지어스</div>
-                    <div class="officerEmail">stageus1@naver.com</div>
-                </div>
+            <div id="officerList">
             </div>
         </div>
-        <div class="logoutBtn" onclick="GoLoginEvent()"> 
+        <div class="logoutBtn" onclick="LogOutEvent()"> 
             <img class="logutBtnImg" src="/planner/source/logout_btn.png">
             <span>로그아웃</span>
         </div>
@@ -86,96 +144,6 @@
         <span class="userName">오영제의 일정</span>
     </div>
     <article id="myScheduleContain">
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
-        <div class="mySchedule">
-            <div>7월 11일 부터</div>
-            <div>일정</div>
-            <div class="editAndRemove">
-                <span>수정</span>
-                <span>&nbsp|&nbsp</span>
-                <span>삭제</span>
-            </div>
-        </div>
         <div class="mySchedule">
             <div>7월 11일 부터</div>
             <div>일정</div>

@@ -13,9 +13,10 @@ function GoChangePwEvent(){
         alert("전화번호를 입력해주세요")
     else{
         var url = "/planner/action/login/findPw.jsp"
-        var target = "findPw"
+        var target = "findPw"   
         window.open("", target)
         var form = document.getElementById("findForm")
+        form.method = "post"
         form.action = url
         form.target = target
         form.submit()

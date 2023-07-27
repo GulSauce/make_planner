@@ -91,8 +91,10 @@ function ShowMenuEvent(){
     }
 }
 
-function GoLoginEvent(){
-    location.href = "/planner/index.jsp"
+function LogOutEvent(){
+    var url = "/planner/action/main/logout.jsp"
+    var target = "logout"
+    window.open(url, target, "width=10, height=10")
 }
 
 function OpenAddScheduleEvent(){

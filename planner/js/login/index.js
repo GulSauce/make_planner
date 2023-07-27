@@ -34,6 +34,13 @@ function GoMainEvent(){
         alert("이메일을 확인해주세요")
     else if(pw.value == "")
         alert("비밀번호를 입력해주세요")
-    else
-        location.href="/planner/jsp/main/main.jsp"
+    else{
+        var url = "/planner/action/login/login.jsp"
+        var target = "login"
+        window.open("", target)
+        var form = document.getElementById("loginForm")
+        form.action = url
+        form.target = target
+        form.submit()
+    }
 }

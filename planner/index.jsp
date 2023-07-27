@@ -16,10 +16,10 @@
     <title>스테이지어스</title>
 </head>
 <body>
-    <div class="contain">
+    <form id="loginForm" class="contain">
         <img class="logo" src="/planner/source/logo.png">
-        <input id="email" class="stdIn" type="text" maxlength="30" placeholder="이메일">
-        <input id="pw" class="stdIn" type="password" maxlength="30" placeholder="비밀번호">
+        <input id="email" name="email" class="stdIn" type="text" maxlength="30" placeholder="이메일">
+        <input id="pw" name="pw" class="stdIn" type="password" maxlength="30" placeholder="비밀번호">
         <input class="stdIn loginBtn" type="button" value="로그인" onclick="GoMainEvent()">
         <div class="autoLoginContain">
             <div class="autoLogin" onclick="ChangeAutoEvent()">
@@ -33,7 +33,7 @@
             <span>ㅣ</span>
             <span class ="moveText" onclick="GoFindPwEvent()">비밀번호 찾기</span>
         </div>
-    </div>
+    </form>
 
     <script src="/planner/js/login/index.js"></script>
 </body>

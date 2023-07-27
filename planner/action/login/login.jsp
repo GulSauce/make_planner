@@ -17,7 +17,6 @@
 <!-- 리스트 라이브러리 -->
 <%@ page import="java.util.ArrayList" %>
 
-<% request.setCharacterEncoding("UTF-8"); %>
 <!-- jsp의 영역 -->
 <%
     //Connecter 파일 불러와서 MariaDB 연결
@@ -26,28 +25,40 @@
     //데이터베이스 연결, //localhost : 내 서버 안에 설치되어있으니까
     Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/planner", "stageus", "1234");
 
-    String name = request.getParameter("name");
     String email = request.getParameter("email");
-    String phoneNumber = request.getParameter("phoneNumber");
+    String pw = request.getParameter("pw");
 
     //SQL 만들기
-    String str = "SELECT email FROM UserInfo WHERE name = ? AND email = ? AND phoneNumber = ?";
+    String str = "SELECT * FROM UserInfo WHERE email = ? AND pw = ?";  
     PreparedStatement sql = connect.prepareStatement(str);
-    sql.setString(1, name);
-    sql.setString(2, email);
-    sql.setString(3, phoneNumber);
+    sql.setString(1, email);
+    sql.setString(2, pw);
 
+    boolean isSucc;
     ResultSet rs = null;
+    ArrayList<String>culums = new ArrayList<String>();
     //SQL 전송
     rs = sql.executeQuery();
-
-    boolean isSucc = false;
-    if(rs.next())
+    if(rs.isBeforeFirst()){
+        rs.next();
         isSucc = true;
-    
-    if(isSucc == true){
-        request.setAttribute("email", "\""+rs.getString(1)+"\"");
+        for(int i = 1; i <= 6; i++)
+            culums.add("\""+rs.getString(i)+"\"");
+
+        session.setAttribute("MEMBERID", culums);
+    } 
+    else{
+        isSucc = false;
     }
 %>
 
-<jsp:forward page="/planner/jsp/login/changePw.jsp"/>
+<script>
+    if(<%=isSucc%> == false){
+        alert("이메일 또는 비밀번호를 확인해주세요.")
+    }
+    else{
+        opener.window.location.reload()
+        opener.location.href = "/planner/jsp/main/main.jsp"
+    }
+    self.close()
+</script>

@@ -56,7 +56,12 @@ function GoLoginEvent(){
     if(pwValid == false)
         alert("비밀번호를 확인해주세요.")
     else {
-        alert("비밀번호 변경이 완료되었습니다.")
-        location.href = "login.jsp"
+        var url = "/planner/action/login/changePw.jsp"
+        var target = "changePw"
+        window.open("", target)
+        var form = document.getElementById("form")
+        form.action = url
+        form.target = target
+        form.submit()
     }
 }
