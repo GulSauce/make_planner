@@ -5,28 +5,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/planner/css/common/common.css">
-    <link rel="stylesheet" type="text/css" href="/planner/css/common/login_common.css">
+    <link rel="stylesheet" type="text/css" href="/planner/css/common/loginCommon.css">
     <link rel="stylesheet" type="text/css" href="/planner/css/login/register.css">
     <title>스테이지어스</title>
 </head>
 <body>
-    <div class="contain">
+    <form class="contain" id="regForm">
         <span class="title">가입하기</span>
         <hr class="hr">
         <div class="inAndBtn">
-            <input id="name" class="stdIn" type="text" maxlength="10" placeholder="이름" oninput="ValidNickNameEvent(this)">
+            <input id="name" name="name" class="stdIn" type="text" maxlength="10" placeholder="이름" oninput="ValidNickNameEvent(this)">
         </div>
         <div class="inAndBtn">
-            <input id="email" class="stdIn" type="text" maxlength="30" placeholder="이메일">
+            <input id="email" name="email" class="stdIn" type="text" maxlength="30" placeholder="이메일">
             <input class="stdBtn" type="button" value="중복체크" onclick="CheckEmailEvent()">
         </div>
         <div class="inAndBtn">
-            <input id="phoneNumber" class="stdIn" type="text" placeholder="전화번호" maxlength="13" oninput="ValidPhoneNumberEvent(this)">
+            <input id="phoneNumber" name="phoneNumber" class="stdIn" type="text" placeholder="전화번호" maxlength="13" oninput="ValidPhoneNumberEvent(this)">
             <input class="stdBtn" type="button" value="중복체크" onclick="CheckPhoneEvent()">
         </div>
         <div class="inAndBtn">
-            <input id="pw" class="stdIn" type="password" maxlength="30" placeholder="비밀번호" oninput="ValidPwEvent()">
+            <input id="pw" name="pw" class="stdIn" type="password" maxlength="30" placeholder="비밀번호" oninput="ValidPwEvent()">
         </div>
         <div class="inAndBtn">
             <input id="pwAgain" class="stdIn" type="password" maxlength="30" placeholder="비밀번호 확인" oninput="ValidPwEvent()">
@@ -34,24 +33,23 @@
         <div id="pwCheckRes">비밀번호는 영문, 숫자, 특수문자를 반드시 포함시켜 7자 이상 30자 이하 가능합니다.</div>
         <div>
             <span class="selectTitle">생일</span>
-            <div id="birthSelect"></div>   
+            <div id="birthSelect" class="boxContain"></div>   
         </div>
+        
         <div>
-            <span class="selectTitle">성별</span>
-            <div id="genderSelect">
-                <div class="radioSelect">
-                    남자 <input type="radio" name="gender">
+            <span class="selectTitle">직급</span>
+            <div class="boxContain">
+                <div class="radio" onclick="RadioSelectEvent(0)">
+                    사원 <input name="class" type="radio" value="사원">
                 </div>
-                <div class="radioSelect">
-                    여자 <input type="radio" name="gender">
+                <div class="radio" onclick="RadioSelectEvent(1)">
+                    팀장 <input name="class" type="radio" value="팀장">
                 </div>
-                <div class="radioSelect">
-                    비공개 <input type="radio" name="gender">
-                </div>
-            </div>
+            </div>   
         </div>
+        
         <input class="checkRegisterBtn" type="button" value="가입하기" onclick="GoRegEvent()">
-    </div>
+    </form>
     <script src="/planner/js/login/register.js"></script>
 </body>
 </html>

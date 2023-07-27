@@ -10,6 +10,7 @@ function MakeBirth(){
 
     var temp = document.createElement("select")
     temp.id = "year"
+    temp.name = "year"
     temp.style.width = "140px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
@@ -23,13 +24,13 @@ function MakeBirth(){
         temp1.value = i
         temp1.innerHTML = i
         temp.appendChild(temp1)
-    }
-    
+    }    
 
     document.getElementById("birthSelect").appendChild(temp)
     
     var temp = document.createElement("select")
     temp.id = "month"
+    temp.name = "month"
     temp.style.width = "140px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
@@ -48,6 +49,7 @@ function MakeBirth(){
 
     var temp = document.createElement("select")
     temp.id = "day"
+    temp.name = "day"
     temp.style.width = "140px"
     temp.style.height = "40px"
     temp.style.fontSize = "20px"
@@ -70,16 +72,30 @@ function CheckEmailEvent(){
     let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     if(!regex.test(email.value))
         alert("이메일을 확인해주세요")
-    else
-        alert("사용가능한 이메일입니다")
+    else{
+        var url = "/planner/action/login/checkEmail.jsp"
+        var target = "checkEmail"
+        window.open("", target)
+        var form = document.getElementById("regForm")
+        form.action = url
+        form.target = target
+        form.submit()
+    }
 }
 
 function CheckPhoneEvent(){
     var phone = document.getElementById("phoneNumber")
     if(phone.value.length < 13)
         alert("전화번호를 확인해주세요")
-    else
-        alert("사용가능한 전화번호입니다")
+    else{
+        var url = "/planner/action/login/checkPhoneNumber.jsp"
+        var target = "checkPhone"
+        window.open("", target)
+        var form = document.getElementById("regForm")
+        form.action = url
+        form.target = target
+        form.submit()
+    }
 }
 
 function ValidPhoneNumberEvent(elem) {
@@ -172,6 +188,18 @@ function ValidPwEvent(){
     }
 }
 
+function RadioSelectEvent(flag){
+    var temp = document.getElementsByName("class")
+    var idx = 0;
+    for(g of temp){
+        if(idx == flag){
+            g.checked = true;
+            break;
+        }
+        idx = idx+1;
+    }
+}
+
 function GoRegEvent(){
     var name = document.getElementById("name")
     var email = document.getElementById("email")
@@ -195,22 +223,22 @@ function GoRegEvent(){
                 if(day < document.getElementById("day").value)
                     alert("생일을 확인해주세요")
                 else
-                    CheckGender()
+                    CheckClass()
             }
             else if(month < document.getElementById("month").value)
                 alert("생일을 확인해주세요")
             else
-                CheckGender()
+                CheckClass()
         }
         else
-            CheckGender()
+            CheckClass()
     }
    
 }
 
-function CheckGender(){
+function CheckClass(){
     var flag = 0;
-    var temp = document.getElementsByName("gender")
+    var temp = document.getElementsByName("class")
     for(g of temp){
         if(g.checked){
             flag = 1
@@ -218,9 +246,14 @@ function CheckGender(){
         }
     }
     if(flag == 0)
-        alert("성별을 선택해주세요")
+        alert("직급을 선택해주세요")
     else{
-        alert("회원가입 완료")
-        location.href = "./login.jsp"
+        var url = "/planner/action/login/goRegister.jsp"
+        var target = "register"
+        window.open("", target)
+        var form = document.getElementById("regForm")
+        form.action = url
+        form.target = target
+        form.submit()
     }
 }

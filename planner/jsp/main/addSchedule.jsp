@@ -18,7 +18,7 @@
     <div class="timeContain">
         <span>시작시간</span>
         <div>
-        <input class="time" type="time"><span>부터</span>
+            <input class="time" type="time"><span>부터</span>
         </div>
     </div>
     <div class="textContain">

@@ -11,8 +11,15 @@ function GoChangePwEvent(){
         alert("이메일을 확인해주세요")
     else if(phoneNumber.value.length < 13)
         alert("전화번호를 입력해주세요")
-    else
-        location.href = "changePw.jsp"
+    else{
+        var url = "/planner/action/login/findPw.jsp"
+        var target = "findPw"
+        window.open("", target)
+        var form = document.getElementById("findForm")
+        form.action = url
+        form.target = target
+        form.submit()
+    }
 }
 
 function ValidPhoneNumberEvent(elem) {

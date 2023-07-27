@@ -19,10 +19,23 @@ body{
 
 .stdIn{
     width: 350px;
+    height: 45px;
+    font-size: 24px;
+}
+
+.stdBtn{
+    font-family: nav;
+    flex-shrink: 0;
+    width: 130px;
+    height: 45px;
+    font-size: 24px;
+    border-radius: 10px;
+    border: none;
 }
 
 .checkRegisterBtn{
     font-family: nav;
+    flex-shrink: 0;
     width: 200px;
     height: 40px;
     border-radius: 15px;
@@ -36,15 +49,7 @@ body{
     font-size: 20px;
 }
 
-#birthSelect{
-    display: flex;
-    justify-content: space-between;
-    width: var(--std_width);
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-#genderSelect{
+.boxContain{
     display: flex;
     flex-shrink: 0;
     justify-content: space-between;
@@ -53,12 +58,12 @@ body{
     margin-bottom: 20px;
 }
 
-.radioSelect{
+.radio{
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     align-items: center;
-    width: 140px;
+    width: 240px;
     padding-left: 10px;
     padding-right: 10px;
     height: 40px;

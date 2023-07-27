@@ -1,9 +1,35 @@
+@font-face{
+    font-family: nav;
+    src:url("/source/fonts/NanumSquareB.ttf")
+}
+
+
 input[type=password] {
     font-family: initial;
 
     &::placeholder {
         font-family: nav;
     }
+}
+
+:root{
+    --blue_border_color: rgba(68, 114, 196, 0.5);
+    --white_border_color: rgb(231, 230, 230);
+    --blue_bg_color: rgb(24, 119, 242);
+
+    --menu_color: rgb(243, 246, 252);
+    --menu_svg_color: rgb(24, 119, 242);
+
+    --silver : rgb(136, 136, 136);
+    --black : black;
+    --white : white;
+    --blue : blue;
+    --std_width : 500px;
+    --std_mini_width : 350px;
+}
+
+body{
+    font-family: nav;
 }
 
 .logo{
@@ -47,11 +73,11 @@ input[type=password] {
     display: block;
     width: var(--std_width);
     height: 60px;
+    padding-left: 8px;
     border-radius: 15px;
     margin-bottom: 10px;
     font-size: 30px;
     outline: none;
-    border: solid;
     border : 2px solid var(--white_border_color);
 }
 
@@ -63,16 +89,6 @@ input[type=password] {
     text-align: left;
     font-size: 30px;
     width: var(--std_width);
-}
-
-.stdBtn{
-    font-family: nav;
-    flex-shrink: 0;
-    width: 130px;
-    height: 45px;
-    font-size: 24px;
-    border-radius: 10px;
-    border: none;
 }
 
 .loginBtn{

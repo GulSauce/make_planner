@@ -1,4 +1,4 @@
-function GoLoginEvent(){
+function FindEmailEvent(){
     var name = document.getElementById("name")
     var phoneNumber = document.getElementById("phoneNumber")
     if(name.value.length < 2)
@@ -6,8 +6,13 @@ function GoLoginEvent(){
     else if(phoneNumber.value.length < 13)
         alert("전화번호를 입력해주세요")
     else{
-        alert("해당하는 이메일 : 입니다.")
-        location.href = "login.jsp"
+        var url = "/planner/action/login/findEmail.jsp"
+        var target = "findEmail"
+        window.open("", target)
+        var form = document.getElementById("findForm")
+        form.action = url
+        form.target = target
+        form.submit()
     }
 }
 
